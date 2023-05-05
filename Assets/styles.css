@@ -1,0 +1,9 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+section h2, section p {
+    display: flex;
+    justify-content: center;
+}
