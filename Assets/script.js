@@ -1,6 +1,5 @@
-// var startButton = document.querySelector("a.quiz.html"); //refences the html to link to the quiz page
 var timer = document.getElementById("timer");
-var timeLeft = 10;
+var timeLeft = 5; //setting the timer
 
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
@@ -9,9 +8,9 @@ var choice3 = document.getElementById("choice3");
 var choice4 = document.getElementById("choice4");
 
 var score = 0;
-var questionNumber = 0;
 var questionCounter = 0;
 
+//creating an array of objects for each question with matching answers
 var questions = [
   {
     question: "What event is not a valid option for addEventListener?",
@@ -54,22 +53,17 @@ var questions = [
     answer: 3,
   },
 ];
-//create a counter for the amount of questions
-//pick a random question
-//remove that option from being asked again
-//match with answer
-//rinse and repeat
 
 function obtainQuestion() {
-    if (questions.length === 0) {
-        clearInterval(interval);
-        var name = prompt("Type your name for the hiscores");
-        var scores = JSON.parse(localStorage.getItem("score")) || [];
-        scores.push({name, score});
-        localStorage.setItem("score", JSON.stringify(scores));
-        window.location.replace("/hiscore.html");
-        return;
-      }
+  if (questions.length === 0) {
+    clearInterval(interval);
+    var name = prompt("Type your name for the hiscores");
+    var scores = JSON.parse(localStorage.getItem("score")) || [];
+    scores.push({ name, score });
+    localStorage.setItem("score", JSON.stringify(scores));
+    window.location.replace("/hiscore.html");
+    return;
+  }
   questionCounter++;
   randomQuestion = Math.floor(Math.random() * questions.length); //gets a random number for each number of questions
   questionsid.textContent = questions[randomQuestion].question; //prints each question randomly
@@ -79,7 +73,6 @@ function obtainQuestion() {
   choice4.textContent = questions[randomQuestion].choice4;
 }
 function checkAnswer() {
-  
   var userChoice = this.textContent;
   var correctAnswer = questions[randomQuestion].answer;
   console.log(questions[randomQuestion]["choice" + correctAnswer]);
@@ -88,7 +81,6 @@ function checkAnswer() {
   } else {
     score -= 50;
   }
-  console.log(score);
   questions.splice(randomQuestion, 1);
   obtainQuestion();
 }
@@ -98,9 +90,8 @@ choice3.addEventListener("click", checkAnswer);
 choice4.addEventListener("click", checkAnswer);
 
 
-    interval = setInterval(function () {
-        if (timeLeft >= 0) {
-        timer.textContent = "Time Left: " + timeLeft--;
-        console.log(timeLeft);
-        }
-    }, 1000);
+interval = setInterval(function () {
+  if (timeLeft >= 0) {
+    timer.textContent = "Time Left: " + timeLeft--;
+  }
+}, 1000);
