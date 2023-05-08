@@ -26,6 +26,7 @@ div {
     padding: 5px;
     margin: 5px;
     border: solid black 5px;
+    align-self: center;
 }
 div:hover {
     cursor: pointer;
@@ -33,6 +34,7 @@ div:hover {
     box-shadow: -5px 5px 5px black;
     transform: translateY(-5px);
 }
+
 a {
     text-decoration: none;
     border: 3px solid black;

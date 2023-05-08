@@ -1,5 +1,5 @@
 var timer = document.getElementById("timer");
-var timeLeft = 5; //setting the timer
+var timeLeft = 75; //setting the timer
 
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
@@ -14,42 +14,42 @@ var questionCounter = 0;
 var questions = [
   {
     question: "What event is not a valid option for addEventListener?",
-    choice1: "Click",
-    choice2: "Keydown",
-    choice3: "Scroll",
-    choice4: "Jump",
+    choice1: "A) Click",
+    choice2: "B) Keydown",
+    choice3: "C) Scroll",
+    choice4: "D) Jump",
     answer: 4,
   },
   {
     question: "Which of the following will print the number 8 to the console?",
-    choice1: "console.log('8')",
-    choice2: "print(8)",
-    choice3: "console.log('+eight')",
-    choice4: "console.log(8)",
+    choice1: "A) console.log('8')",
+    choice2: "B) print(8)",
+    choice3: "C) console.log('+eight')",
+    choice4: "D) console.log(8)",
     answer: 4,
   },
   {
     question: "Which of the following is considered a boolean value?",
-    choice1: "false",
-    choice2: "null",
-    choice3: "undefined",
-    choice4: "'seven'",
+    choice1: "A) false",
+    choice2: "B) null",
+    choice3: "C) undefined",
+    choice4: "D) 'seven'",
     answer: 1,
   },
   {
     question: "What is the range of numbers that would math.random return?",
-    choice1: "0.0 inclusive - 1.0 exclusive",
-    choice2: "0.0 exclusive - 1.0 inclusive",
-    choice3: "0.0 inclusive - 10.0 inclusive",
-    choice4: "0.0 exclusive - 100.0 inclusive",
+    choice1: "A) 0.0 inclusive - 1.0 exclusive",
+    choice2: "B) 0.0 exclusive - 1.0 inclusive",
+    choice3: "C) 0.0 inclusive - 10.0 inclusive",
+    choice4: "D) 0.0 exclusive - 100.0 inclusive",
     answer: 1,
   },
   {
     question: "How would you call the first element in an array?",
-    choice1: "array[first]",
-    choice2: "array[start]",
-    choice3: "array[0]",
-    choice4: "array[1]",
+    choice1: "A) array[first]",
+    choice2: "B) array[start]",
+    choice3: "C) array[0]",
+    choice4: "D) array[1]",
     answer: 3,
   },
 ];
