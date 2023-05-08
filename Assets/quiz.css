@@ -15,12 +15,15 @@ h1 {
     display: flex;
     justify-content: center;
 }
-#container {
-    padding: 5px;
-}
 div {
     flex-wrap: wrap;
     padding: 5px;
     margin: 5px;
     border: solid black 5px;
+}
+div:hover {
+    cursor: pointer;
+    background-color: rgb(142, 228, 242);
+    box-shadow: -5px 5px 5px black;
+    transform: translateY(-5px);
 }

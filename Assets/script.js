@@ -1,6 +1,6 @@
-var startButton = document.querySelector("a.quiz.html");
+// var startButton = document.querySelector("a.quiz.html"); //refences the html to link to the quiz page
 var timer = document.getElementById("timer");
-var timeLeft = 75;
+var timeLeft = 3;
 
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
@@ -58,36 +58,48 @@ var questions = [{
 //remove that option from being asked again
 //match with answer
 //rinse and repeat
- startGame = function () {
-    obtainQuestion();
- }
 
  function obtainQuestion () {
+//    if (questionCounter < questions.length) {
     questionCounter++;
     var randomQuestion = Math.floor(Math.random() * questions.length); //gets a random number for each number of questions
     questionsid.textContent = questions[randomQuestion].question; //prints each question randomly
-    choice1.textContent = questions[randomQuestion].choice1;
+    choice1.textContent = questions[randomQuestion].choice1; //prints all of the answer choices
     choice2.textContent = questions[randomQuestion].choice2;
     choice3.textContent = questions[randomQuestion].choice3;
     choice4.textContent = questions[randomQuestion].choice4;
+
+    
+    function checkAnswer () {
+        var userChoice = this.textContent;
+        var correctAnswer = questions[randomQuestion].answer
+        if (userChoice === questions[randomQuestion]["choice" + correctAnswer]) {
+            score += 100; 
+        } else {
+            score -= 50;
+        }
+        console.log(score);
+    }
+     choice1.addEventListener("click", checkAnswer);
+     choice2.addEventListener("click", checkAnswer);
+     choice3.addEventListener("click", checkAnswer);
+     choice4.addEventListener("click", checkAnswer); 
+
+    // questions.splice(randomQuestion, 1);
+    // console.log(questions);
+
+    // if (questionCounter < questions.length) {
+    //     obtainQuestion();
+    // } else {
+    //     return;
+    // }
  }
+// }
 
 
-
-obtainQuestion();
-
-
-
-// startButton.addEventListener("click", function() {
-//     if (timeLeft > 0) {
-//         setInterval(function () {
-//             timer.textContent = "Time Left: " + timeLeft--;
-//         }, 1000);
-//     } 
-// })
-// console.log(timeLeft);
-
-
-console.log(startButton);
-// var randomQuestion = Math.floor(Math.random() * questions.length);
-// console.log(questions[randomQuestion].question);
+// if (timeLeft > 0) {
+//     setInterval(function () {
+//         timer.textContent = "Time Left: " + timeLeft--;
+//         console.log(timeLeft);
+//     }, 1000);
+// } 
