@@ -1,6 +1,16 @@
-var startButton = document.getElementById("startButton")
-var timer = document.getElementById("timer")
+var startButton = document.querySelector("a.quiz.html");
+var timer = document.getElementById("timer");
 var timeLeft = 75;
+
+var questionsid = document.getElementById("questionsid");
+var choice1 = document.getElementById("choice1");
+var choice2 = document.getElementById("choice2");
+var choice3 = document.getElementById("choice3");
+var choice4 = document.getElementById("choice4");
+
+var score = 0;
+var questionNumber = 0;
+var questionCounter = 0;
 
 var questions = [{
     question: "What event is not a valid option for addEventListener?",
@@ -42,13 +52,42 @@ var questions = [{
     choice4: "array[1]",
     answer: 3,
 },
-]
+];
+//create a counter for the amount of questions
+//pick a random question
+//remove that option from being asked again
+//match with answer
+//rinse and repeat
+ startGame = function () {
+    obtainQuestion();
+ }
 
-startButton.addEventListener("click", function() {
-    if (timeLeft > 0) {
-        setInterval(function () {
-            timer.textContent = "Time Left: " + timeLeft--;
-        }, 1000);
-    }
-})
+ function obtainQuestion () {
+    questionCounter++;
+    var randomQuestion = Math.floor(Math.random() * questions.length); //gets a random number for each number of questions
+    questionsid.textContent = questions[randomQuestion].question; //prints each question randomly
+    choice1.textContent = questions[randomQuestion].choice1;
+    choice2.textContent = questions[randomQuestion].choice2;
+    choice3.textContent = questions[randomQuestion].choice3;
+    choice4.textContent = questions[randomQuestion].choice4;
+ }
 
+
+
+obtainQuestion();
+
+
+
+// startButton.addEventListener("click", function() {
+//     if (timeLeft > 0) {
+//         setInterval(function () {
+//             timer.textContent = "Time Left: " + timeLeft--;
+//         }, 1000);
+//     } 
+// })
+// console.log(timeLeft);
+
+
+console.log(startButton);
+// var randomQuestion = Math.floor(Math.random() * questions.length);
+// console.log(questions[randomQuestion].question);
