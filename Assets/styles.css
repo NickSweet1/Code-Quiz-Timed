@@ -24,3 +24,10 @@ a:hover {
     box-shadow: -5px 5px 5px black;
     transform: translateY(-5px);
 }
+ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    text-decoration: none;
+}
