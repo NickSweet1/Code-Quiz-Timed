@@ -63,7 +63,7 @@ function obtainQuestion() {
     var scores = JSON.parse(localStorage.getItem("score")) || [];
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
-    window.location.replace("/hiscore.html");
+    window.location.replace("/Code-Quiz-Timed/hiscore.html");
     return;
   }
   questionCounter++;
