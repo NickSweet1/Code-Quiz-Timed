@@ -58,6 +58,46 @@ var questions = [
     choice4: "D) array[1]",
     answer: 3,
   },
+  {
+    question: "What does CSS stand for?",
+    choice1: "A) Corrupt System Support",
+    choice2: "B) Cascading Style Sheet",
+    choice3: "C) Centralized Search Sheet",
+    choice4: "D) Coding Seems Silly",
+    answer: 2,
+  },
+  {
+    question: "If myArray has 7 elements in it, the third element is 7 and the 5th is 4, what would console.log(myArray[2] + myArray[4]) print?",
+    choice1: "null",
+    choice2: "11",
+    choice3: "6",
+    choice4: "NaN",
+    answer: 2,
+  },
+  {
+    question: "What is the correct syntax for declaring a variable in JavaScript?",
+    choice1: "var",
+    choice2: "element",
+    choice3: "variable",
+    choice4: "vari",
+    answer: 1,
+  },
+  {
+    question: "What year was CSS first released?",
+    choice1: "1987",
+    choice2: "1992",
+    choice3: "1996",
+    choice4: "1999",
+    answer: 3,
+  },
+  {
+    question: 'I have an array of myArray = ["cat", "dog", "bear", "alligator", "frog"]. What would myArray.pop do?',
+    choice1: "Removes all elements except for 'cat'",
+    choice2: "Adds 'pop'",
+    choice3: "Removes 'cat'",
+    choice4: "Removes 'frog'",
+    answer: 4,
+  },
 ];
 
 function obtainQuestion() {
@@ -67,7 +107,7 @@ function obtainQuestion() {
     var scores = JSON.parse(localStorage.getItem("score")) || []; //gets the scores and names from local storage or an empty array
     scores.push({ name, score }); //adds the scores to the array
     localStorage.setItem("score", JSON.stringify(scores)); 
-    window.location.replace(localURL); //opens new page after quiz is over
+    window.location.replace(deployedURL); //opens new page after quiz is over
     return;
   }
   questionCounter++;
@@ -93,16 +133,15 @@ function checkAnswer() {
   } else {
     score -= 50;
   }
-  scores.sort((a,b) => {
+  scores.sort((a,b) => { //sorts the scores array by highest to lowest
     return b.score - a.score;
   });
-
+  if (scores.length > 0) {
+    record.textContent = "Highscore: " + scores[0].score + " points." //prints the highest score to beat by calling the first index
+  } else {
+    record.textContent = "Highscore: No submissions yet"; //offsets the empty array with information saying that nobody has taken the quiz yet
+  };
   scoreCount.textContent = "Your Score: " + score; //prints the users current score as they are taking the quiz
   questions.splice(randomQuestion, 1); //splices out the question that has been answered
   obtainQuestion(); //restart
 }
-if (scores.length > 0) {
-  record.textContent = "Highscore: " + scores[0].score + " points." //prints the highest score to beat
-} else {
-  record.textContent = "Highscore: No submissions yet"; //offsets the empty array with information saying that nobody has taken the quiz yet
-};
