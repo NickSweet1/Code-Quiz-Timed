@@ -1,5 +1,5 @@
 var timer = document.getElementById("timer");
-var timeLeft = 10; //setting the timer
+var timeLeft = 75; //setting the timer
 
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
@@ -95,17 +95,3 @@ function checkAnswer() {
   questions.splice(randomQuestion, 1);
   obtainQuestion();
 }
-// interval = setInterval(function () {
-//   if (timeLeft > 0) {
-//     timer.textContent = "Time Left: " + timeLeft--;
-//   } else {
-//     clearInterval(interval);
-//     timer.textContent = "Out of Time!";
-//     var name = prompt("Type your name for the hiscores");
-//     var scores = JSON.parse(localStorage.getItem("score")) || [];
-//     scores.push({ name, score });
-//     localStorage.setItem("score", JSON.stringify(scores));
-//     window.location.replace(localURL);
-//     return;
-//   }
-// }, 1000);
