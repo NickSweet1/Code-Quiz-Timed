@@ -10,7 +10,7 @@ var choice4 = document.getElementById("choice4");
 var score = 0;
 var questionCounter = 0;
 
-var hiscorePage = "../hiscore.html";
+var hiscorePage = "https://nicksweet1.github.io/hiscore.html";
 
 //creating an array of objects for each question with matching answers
 var questions = [
@@ -64,7 +64,7 @@ function obtainQuestion() {
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
     window.location.href=hiscorePage;
-    // return;
+    return;
   }
   questionCounter++;
   randomQuestion = Math.floor(Math.random() * questions.length); //gets a random number for each number of questions
