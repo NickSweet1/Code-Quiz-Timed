@@ -1,5 +1,5 @@
 var timer = document.getElementById("timer");
-var timeLeft = 75; //setting the timer
+var timeLeft = 10; //setting the timer
 
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
@@ -10,7 +10,10 @@ var choice4 = document.getElementById("choice4");
 var score = 0;
 var questionCounter = 0;
 
-// var hiscorePage = "https://nicksweet1.github.io/hiscore.html";
+//the following vars are only for use in line 69 to clearly decribe the pathing
+var localURL = "/hiscore.html"; 
+var deployedURL = "/Code-Quiz-Timed/hiscore.html";
+
 
 //creating an array of objects for each question with matching answers
 var questions = [
@@ -63,7 +66,7 @@ function obtainQuestion() {
     var scores = JSON.parse(localStorage.getItem("score")) || [];
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
-    window.location.replace("/Code-Quiz-Timed/hiscore.html");
+    window.location.replace(localURL);
     return;
   }
   questionCounter++;
@@ -79,6 +82,7 @@ function obtainQuestion() {
   choice3.addEventListener("click", checkAnswer);
   choice4.addEventListener("click", checkAnswer);
 }
+
 function checkAnswer() {
   var userChoice = this.textContent;
   var correctAnswer = questions[randomQuestion].answer;
@@ -91,11 +95,17 @@ function checkAnswer() {
   questions.splice(randomQuestion, 1);
   obtainQuestion();
 }
-
-
-
-interval = setInterval(function () {
-  if (timeLeft >= 0) {
-    timer.textContent = "Time Left: " + timeLeft--;
-  }
-}, 1000);
+// interval = setInterval(function () {
+//   if (timeLeft > 0) {
+//     timer.textContent = "Time Left: " + timeLeft--;
+//   } else {
+//     clearInterval(interval);
+//     timer.textContent = "Out of Time!";
+//     var name = prompt("Type your name for the hiscores");
+//     var scores = JSON.parse(localStorage.getItem("score")) || [];
+//     scores.push({ name, score });
+//     localStorage.setItem("score", JSON.stringify(scores));
+//     window.location.replace(localURL);
+//     return;
+//   }
+// }, 1000);
