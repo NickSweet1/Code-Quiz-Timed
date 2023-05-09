@@ -61,7 +61,7 @@ function obtainQuestion() {
     var scores = JSON.parse(localStorage.getItem("score")) || [];
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
-    window.location.href="../hiscore.html";
+    window.location.href="https://nicksweet1.github.io/hiscore.html";
     return;
   }
   questionCounter++;
