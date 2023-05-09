@@ -1,6 +1,6 @@
 var timer = document.getElementById("timer");
 var timeLeft = 75; //setting the timer
-
+var scoreCount = document.getElementById("scoreCount");
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
 var choice2 = document.getElementById("choice2");
@@ -92,6 +92,7 @@ function checkAnswer() {
   } else {
     score -= 50;
   }
+  scoreCount.textContent = "Current Score: " + score;
   questions.splice(randomQuestion, 1);
   obtainQuestion();
 }

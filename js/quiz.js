@@ -12,3 +12,4 @@ interval = setInterval(function () {
     return;
   }
 }, 1000);
+
