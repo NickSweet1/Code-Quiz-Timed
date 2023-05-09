@@ -1,5 +1,5 @@
 var timer = document.getElementById("timer");
-var timeLeft = 75; //setting the timer
+var timeLeft = 100; //setting the timer
 var scoreCount = document.getElementById("scoreCount");
 var record = document.getElementById("record");
 var questionsid = document.getElementById("questionsid");
