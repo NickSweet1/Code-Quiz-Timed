@@ -10,7 +10,7 @@ var choice4 = document.getElementById("choice4");
 var score = 0;
 var questionCounter = 0;
 
-var hiscorePage = "https://nicksweet1.github.io/hiscore.html";
+// var hiscorePage = "https://nicksweet1.github.io/hiscore.html";
 
 //creating an array of objects for each question with matching answers
 var questions = [
@@ -63,7 +63,7 @@ function obtainQuestion() {
     var scores = JSON.parse(localStorage.getItem("score")) || [];
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
-    window.location.href=hiscorePage;
+    window.location.replace("/hiscore.html");
     return;
   }
   questionCounter++;
