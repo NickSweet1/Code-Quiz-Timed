@@ -71,6 +71,11 @@ function obtainQuestion() {
   choice2.textContent = questions[randomQuestion].choice2;
   choice3.textContent = questions[randomQuestion].choice3;
   choice4.textContent = questions[randomQuestion].choice4;
+
+  choice1.addEventListener("click", checkAnswer);
+  choice2.addEventListener("click", checkAnswer);
+  choice3.addEventListener("click", checkAnswer);
+  choice4.addEventListener("click", checkAnswer);
 }
 function checkAnswer() {
   var userChoice = this.textContent;
@@ -84,10 +89,7 @@ function checkAnswer() {
   questions.splice(randomQuestion, 1);
   obtainQuestion();
 }
-choice1.addEventListener("click", checkAnswer);
-choice2.addEventListener("click", checkAnswer);
-choice3.addEventListener("click", checkAnswer);
-choice4.addEventListener("click", checkAnswer);
+
 
 
 interval = setInterval(function () {
