@@ -64,7 +64,7 @@ function obtainQuestion() {
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
     window.location.href=hiscorePage;
-    return;
+    // return;
   }
   questionCounter++;
   randomQuestion = Math.floor(Math.random() * questions.length); //gets a random number for each number of questions
