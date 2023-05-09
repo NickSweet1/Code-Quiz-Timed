@@ -66,7 +66,7 @@ function obtainQuestion() {
     var scores = JSON.parse(localStorage.getItem("score")) || [];
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
-    window.location.replace(deployedURL);
+    window.location.replace(localURL);
     return;
   }
   questionCounter++;

@@ -30,13 +30,20 @@ a:hover {
     box-shadow: -5px 5px 5px black;
     transform: translateY(-5px);
 }
-#list {
+ol {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-content: center;
+}
+li {
+    padding-bottom: 1%;
+    margin: auto;
 }
 h1 {
+    display: flex;
+    justify-content: center;
+}
+p {
     display: flex;
     justify-content: center;
 }

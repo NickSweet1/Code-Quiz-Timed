@@ -8,7 +8,7 @@ interval = setInterval(function () {
     var scores = JSON.parse(localStorage.getItem("score")) || [];
     scores.push({ name, score });
     localStorage.setItem("score", JSON.stringify(scores));
-    window.location.replace(localURL);
+    window.location.replace(deployedURL);
     return;
   }
 }, 1000);
