@@ -1,12 +1,13 @@
 var timer = document.getElementById("timer");
 var timeLeft = 75; //setting the timer
 var scoreCount = document.getElementById("scoreCount");
+var record = document.getElementById("record");
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
 var choice2 = document.getElementById("choice2");
 var choice3 = document.getElementById("choice3");
 var choice4 = document.getElementById("choice4");
-
+var scores = JSON.parse(localStorage.getItem("score")) || [];//sets local storage array to a variable
 var score = 0;
 var questionCounter = 0;
 
@@ -62,11 +63,11 @@ var questions = [
 function obtainQuestion() {
   if (questions.length === 0) {
     clearInterval(interval);
-    var name = prompt("Type your name for the hiscores");
-    var scores = JSON.parse(localStorage.getItem("score")) || [];
-    scores.push({ name, score });
-    localStorage.setItem("score", JSON.stringify(scores));
-    window.location.replace(localURL);
+    var name = prompt("Type your name for the hiscores"); //prompts user for their name to display on the highscore page
+    var scores = JSON.parse(localStorage.getItem("score")) || []; //gets the scores and names from local storage or an empty array
+    scores.push({ name, score }); //adds the scores to the array
+    localStorage.setItem("score", JSON.stringify(scores)); 
+    window.location.replace(localURL); //opens new page after quiz is over
     return;
   }
   questionCounter++;
@@ -92,7 +93,16 @@ function checkAnswer() {
   } else {
     score -= 50;
   }
-  scoreCount.textContent = "Current Score: " + score;
-  questions.splice(randomQuestion, 1);
-  obtainQuestion();
+  scores.sort((a,b) => {
+    return b.score - a.score;
+  });
+
+  scoreCount.textContent = "Your Score: " + score; //prints the users current score as they are taking the quiz
+  questions.splice(randomQuestion, 1); //splices out the question that has been answered
+  obtainQuestion(); //restart
 }
+if (scores.length > 0) {
+  record.textContent = "Highscore: " + scores[0].score + " points." //prints the highest score to beat
+} else {
+  record.textContent = "Highscore: No submissions yet"; //offsets the empty array with information saying that nobody has taken the quiz yet
+};

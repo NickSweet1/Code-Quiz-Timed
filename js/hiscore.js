@@ -6,5 +6,5 @@ for (i = 0; i < scores.length; i++) {
     });
     li.innerText = scores[i].name + " " + scores[i].score;
     document.getElementById("list").appendChild(li);
-    
 }
+console.log(scores[0])
