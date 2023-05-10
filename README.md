@@ -11,7 +11,7 @@ It asks 10 questions and gives you 100 seconds to answer them all. After you ans
 ![Screenshot (15)](https://github.com/NickSweet1/Code-Quiz-Timed/assets/111986248/aee78b65-c24d-4190-b406-ad79517f5684)
 ![Screenshot (16)](https://github.com/NickSweet1/Code-Quiz-Timed/assets/111986248/de0924f0-751a-4c3c-8a77-a09d1c774a79)
 
-
+link to deployed page: https://nicksweet1.github.io/Code-Quiz-Timed/
 
 ## Contributing
 Tutoring provided by Chris B. for help and support. 
