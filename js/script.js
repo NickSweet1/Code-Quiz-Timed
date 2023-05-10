@@ -133,7 +133,7 @@ function checkAnswer() {
     score += 100;
   } else {
     score -= 50;
-    timeLeft -= 5;
+    timeLeft -= 5; //removes time if user answers question incorrectly
   }
   scores.sort((a,b) => { //sorts the scores array by highest to lowest
     return b.score - a.score;
