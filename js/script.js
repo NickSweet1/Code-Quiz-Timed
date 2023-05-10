@@ -1,6 +1,7 @@
 var timer = document.getElementById("timer");
 var timeLeft = 100; //setting the timer
-var scoreCount = document.getElementById("scoreCount");
+//grabbing from the html doc
+var scoreCount = document.getElementById("scoreCount"); 
 var record = document.getElementById("record");
 var questionsid = document.getElementById("questionsid");
 var choice1 = document.getElementById("choice1");
@@ -8,10 +9,10 @@ var choice2 = document.getElementById("choice2");
 var choice3 = document.getElementById("choice3");
 var choice4 = document.getElementById("choice4");
 var scores = JSON.parse(localStorage.getItem("score")) || [];//sets local storage array to a variable
-var score = 0;
+var score = 0; //setting starting vars
 var questionCounter = 0;
 
-//the following vars are only for use in line 69 to clearly decribe the pathing
+//the following vars are only for use in line 69 to clearly decribe the pathing (issues with Github Pages with local pathing)
 var localURL = "/hiscore.html"; 
 var deployedURL = "/Code-Quiz-Timed/hiscore.html";
 
@@ -132,6 +133,7 @@ function checkAnswer() {
     score += 100;
   } else {
     score -= 50;
+    timeLeft -= 5;
   }
   scores.sort((a,b) => { //sorts the scores array by highest to lowest
     return b.score - a.score;
